@@ -1,0 +1,34 @@
+{
+  "name": "render-fns",
+  "version": "0.0.1",
+  "description": "Common render functions for different UI frameworks",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node testbed/react.js"
+  },
+  "keywords": [
+    "react",
+    "vue",
+    "angular"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbellman/render-fns.git"
+  },
+  "author": "Malcolm Bellman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mbellman/render-fns/issues"
+  },
+  "homepage": "https://github.com/mbellman/render-fns#readme",
+  "devDependencies": {
+    "@types/react": "^16.9.15",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "typescript": "^3.7.3"
+  },
+  "peerDependencies": {
+    "react": ">= 16.0.0"
+  }
+}
