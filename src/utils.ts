@@ -14,3 +14,4 @@ export function arrayToObject<T, K extends string | number | symbol, U>(
   }, {} as Record<K, U>);
 }
 
+export const capitalize = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);

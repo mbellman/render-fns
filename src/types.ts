@@ -12,4 +12,6 @@ export type VirtualElementCreatorFactory = (name: ElementName) => VirtualElement
 
 export type VirtualElementToolbox = Record<ElementName, VirtualElementCreator>;
 
-export type RenderFn<P extends Props> = (toolbox: VirtualElementToolbox) => (props: P) => VirtualElement;
+export type PropsTransformer = (props: Props) => Props;
+
+export type RenderFn<P extends Props> = (toolbox: VirtualElementToolbox, props: P) => VirtualElement;

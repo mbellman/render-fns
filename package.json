@@ -1,11 +1,12 @@
 {
   "name": "render-fns",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "Common render functions for different UI frameworks",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "node testbed/react.js"
+    "test:react": "webpack-dev-server --config testbed/webpack.react.js",
+    "retest:react": "npm run build && npm run test:react"
   },
   "keywords": [
     "react",
@@ -23,10 +24,18 @@
   },
   "homepage": "https://github.com/mbellman/render-fns#readme",
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.5",
+    "@babel/preset-react": "^7.7.4",
     "@types/react": "^16.9.15",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   },
   "peerDependencies": {
     "react": ">= 16.0.0"
