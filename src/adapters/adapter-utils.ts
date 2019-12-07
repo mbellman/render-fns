@@ -18,7 +18,6 @@ export function createPropsTransformer(propsMapper: PropsMapper): PropsTransform
       } else {
         transformedProps[propMapper] = originalProps[propName];
       }
-
     }
 
     return transformedProps;
