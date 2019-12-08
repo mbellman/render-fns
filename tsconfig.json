@@ -4,7 +4,8 @@
     "esModuleInterop": true,
     "lib": ["es2015"],
     "noImplicitAny": true,
-    "outDir": "lib"
+    "outDir": "lib",
+    "target": "ES5"
   },
   "files": [
     "src/index.ts",

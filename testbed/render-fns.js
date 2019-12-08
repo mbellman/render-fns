@@ -1,9 +1,12 @@
 import { render } from '../lib';
 
 export const Input = render(
-  ({ input }, { type, placeholder }) => (
-    input({ class: 'ui-input', type, placeholder })
-  )
+  ({ input }, { type, placeholder, onChange }) => input({
+    class: 'ui-input',
+    type,
+    placeholder,
+    onChange: e => onChange(e.target.value)
+  })
 );
 
 export const Button = render(
@@ -19,13 +22,15 @@ export const Button = render(
 
 export const Form = render(
   { Input, Button },
-  ({ form, div, Button, Input }, { name }) => (
+  ({ form, div, span, Button, Input }, { name }, { state, set }) => (
     form({ class: 'ui-form', name, action: '#' },
       div(
-        Input({ type: 'text', placeholder: 'Name' })
+        Input({ type: 'text', placeholder: 'Name', onChange: set('name') }),
+        span(state.name)
       ),
       div(
-        Input({ type: 'text', placeholder: 'Age' })
+        Input({ type: 'text', placeholder: 'Age', onChange: set('age') }),
+        span(state.age)
       ),
       Button('Submit')
     )
