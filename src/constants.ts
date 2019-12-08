@@ -1,7 +1,10 @@
 export const ElementNames = [
   'div',
   'span',
+  'form',
   'input',
-  'button'
+  'select',
+  'textarea',
+  'button',
 ] as const;
 

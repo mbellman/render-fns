@@ -1,25 +1,13 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { render } from '../lib';
 import { createComponent } from '../lib/adapters/react';
-
-const Button = render(
-  ({ button }, { children, onClick }) => (
-    button({
-      class: 'button',
-      on: {
-        click: onClick
-      }
-    }, children)
-  )
-);
+import { Button, Form } from './render-fns';
 
 const ReactButton = createComponent(Button);
+const ReactForm = createComponent(Form);
 
 const App = () => (
-  <ReactButton onClick={() => console.log('Hello!')}>
-    Click!
-  </ReactButton>
+  <ReactForm />
 );
 
 ReactDOM.render(<App />, document.getElementById('app'));
