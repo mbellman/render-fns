@@ -18,8 +18,8 @@ export const Button = render(
 );
 
 export const Form = render(
-  { Input },
-  ({ form, div, button, Input }, { name }) => (
+  { Input, Button },
+  ({ form, div, Button, Input }, { name }) => (
     form({ class: 'ui-form', name, action: '#' },
       div(
         Input({ type: 'text', placeholder: 'Name' })
@@ -27,7 +27,7 @@ export const Form = render(
       div(
         Input({ type: 'text', placeholder: 'Age' })
       ),
-      button('Submit')
+      Button('Submit')
     )
   )
 );

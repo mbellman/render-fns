@@ -12,7 +12,7 @@ export type VirtualElement = Record<string | number | symbol, any> | string | nu
 
 export type VirtualElementCreator = (propsOrFirstChild?: Props | VirtualElement, ...children: VirtualElement[]) => VirtualElement;
 
-export type VirtualElementCreatorFactory = (name: ElementName) => VirtualElementCreator;
+export type VirtualElementCreatorFactory = (type: any) => VirtualElementCreator;
 
 export type VirtualElementToolbox = Record<string, VirtualElementCreator>;
 

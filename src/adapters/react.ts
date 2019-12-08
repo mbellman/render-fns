@@ -15,12 +15,12 @@ const transformReactProps = createPropsTransformer({
   on: eventName => `on${capitalize(eventName)}`
 });
 
-const createReactElementCreator: VirtualElementCreatorFactory = name => {
+const createReactElementCreator: VirtualElementCreatorFactory = type => {
   return (propsOrFirstChild: Props | VirtualElement, ...children: VirtualElement[]) => {
     if (isReactElement(propsOrFirstChild) || typeof propsOrFirstChild !== 'object') {
-      return createElement(name, {}, propsOrFirstChild, ...children);
+      return createElement(type, {}, propsOrFirstChild, ...children);
     } else {
-      return createElement(name, transformReactProps(propsOrFirstChild as Props), ...children);
+      return createElement(type, transformReactProps(propsOrFirstChild as Props), ...children);
     }
   };
 };
@@ -31,7 +31,7 @@ export function createComponent<P, S>(config: RenderFnConfig<P, S>): React.Funct
 export function createComponent<P, S>({ injections, renderFn }: RenderFnConfig<P, S>): React.FunctionComponent<P> | React.ComponentClass<P, S> {
   const toolbox: VirtualElementToolbox = {
     ...reactElementToolbox,
-    ...mapObject(injections, identity, createComponent)
+    ...mapObject(injections, identity, injection => createReactElementCreator(createComponent(injection)))
   };
 
   if (renderFn.length === 2) {
