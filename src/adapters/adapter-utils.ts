@@ -8,15 +8,17 @@ export function createPropsTransformer(propsMapper: PropsMapper): PropsTransform
   return originalProps => {
     const transformedProps: Props = {};
 
-    for (const propName in originalProps) {
-      const propMapper = propName in propsMapper ? propsMapper[propName] : propName;
-
-      if (typeof propMapper === 'function') {
-        for (const nestedPropName in originalProps[propName]) {
-          transformedProps[propMapper(nestedPropName)] = originalProps[propName][nestedPropName];
+    if (originalProps) {
+      for (const propName in originalProps) {
+        const propMapper = propName in propsMapper ? propsMapper[propName] : propName;
+  
+        if (typeof propMapper === 'function') {
+          for (const nestedPropName in originalProps[propName]) {
+            transformedProps[propMapper(nestedPropName)] = originalProps[propName][nestedPropName];
+          }
+        } else {
+          transformedProps[propMapper] = originalProps[propName];
         }
-      } else {
-        transformedProps[propMapper] = originalProps[propName];
       }
     }
 

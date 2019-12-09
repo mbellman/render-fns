@@ -1,12 +1,14 @@
 {
   "name": "render-fns",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Common render functions for different UI frameworks",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "test:react": "webpack-dev-server --config testbed/webpack.react.js",
-    "retest:react": "npm run build && npm run test:react"
+    "test:vue": "webpack-dev-server --config testbed/webpack.vue.js",
+    "retest:react": "npm run build && npm run test:react",
+    "retest:vue": "npm run build && npm run test:vue"
   },
   "keywords": [
     "react",
@@ -33,11 +35,13 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "typescript": "^3.7.3",
+    "vue": "^2.6.10",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
   "peerDependencies": {
-    "react": ">= 16.0.0"
+    "react": ">= 16.x",
+    "vue": ">= 2.6.x"
   }
 }

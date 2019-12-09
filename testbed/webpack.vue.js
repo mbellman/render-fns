@@ -7,7 +7,7 @@ module.exports = {
     port: 1234
   },
   entry: {
-    app: './testbed/react.js'
+    app: './testbed/vue.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -18,14 +18,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: [
-              '@babel/preset-env',
-              '@babel/preset-react'
+              '@babel/preset-env'
             ]
           }
         }

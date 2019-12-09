@@ -5,12 +5,14 @@ export const Input = render(
     class: 'ui-input',
     type,
     placeholder,
-    onChange: e => onChange(e.target.value)
+    on: {
+      change: e => onChange(e.target.value)
+    }
   })
 );
 
 export const Button = render(
-  ({ button }, { children, onClick }) => (
+  ({ button }, { children, onClick = () => {} }) => (
     button({
       class: 'ui-button',
       on: {
